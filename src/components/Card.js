@@ -7,6 +7,7 @@ import classNames from "classnames";
 const card = ({ active }) => {
   const tablet = useMediaQuery("(max-width: 1024px)");
   const activeCard = active ? "!border-blue-500" : "!border-black";
+  const activeCardBtn = active ? "!border-blue-500" : "!border-black";
   const hide = tablet ? "hidden" : "block";
   return (
     <>
@@ -30,10 +31,18 @@ const card = ({ active }) => {
             </p>
           </div>
           <button className=" relative  w-fit mt-2.5 ">
-            <span className=" bg-slate-500 h-full flex gap-4 items-center w-full h-full group-hover:bg-yellow-500 px-6 z-50 relative py-4 rounded-tr-3xl group-hover:translate-y-[-6px]">
+            <span
+              className={` bg-slate-500 h-full flex gap-4 items-center w-full h-full group-hover:bg-yellow-500 px-6 z-50 relative py-4 rounded-tr-3xl group-hover:translate-y-[-6px] ${
+                active ? " !bg-yellow-500" : ""
+              }`}
+            >
               Discover <ArrowDown />
             </span>
-            <span className=" px-6 top-[6px] left-[0px] absolute w-[105%] h-full py-4 gap-4 items-center bg-blue-500 hidden group-hover:block rounded-tr-3xl"></span>
+            <span
+              className={` px-6 top-[6px] left-[0px] absolute w-[105%] h-full py-4 gap-4 items-center bg-blue-500 hidden group-hover:block rounded-tr-3xl ${
+                active ? "!block" : ""
+              } `}
+            ></span>
           </button>
         </div>
       ) : (
